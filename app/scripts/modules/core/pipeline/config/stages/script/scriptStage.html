@@ -16,6 +16,7 @@
     <input type="text" class="form-control input-sm"
            ng-model="stage.propertyFile"/>
   </stage-config-field>
+  <div ng-if="!pipeline.strategy">
   <stage-config-field label="Image" help-key="pipeline.config.script.image">
     <input type="text" class="form-control input-sm"
            ng-model="stage.image"/>
@@ -32,6 +33,7 @@
     <input type="text" class="form-control input-sm"
            ng-model="stage.cluster"/>
   </stage-config-field>
+  </div>
   <stage-config-field label="Cmc" help-key="pipeline.config.script.cmc">
     <input type="text" class="form-control input-sm"
            ng-model="stage.cmc"/>
