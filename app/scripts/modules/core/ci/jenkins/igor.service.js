@@ -9,19 +9,19 @@ module.exports = angular.module('spinnaker.core.ci.jenkins.igor.service', [
   .factory('igorService', function (settings, Restangular) {
 
     function listMasters() {
-      return Restangular.one('builds').getList();
+      return Restangular.one('v2').one('builds').getList();
     }
 
     function listJobsForMaster(master) {
-      return Restangular.one('builds', master).all('jobs').getList();
+      return Restangular.one('v2').one('builds', master).all('jobs').getList();
     }
 
     function listBuildsForJob(master, job) {
-      return Restangular.one('builds', master).one('builds').one('jobs', job).getList();
+      return Restangular.one('v2').one('builds', master).one('builds').one('jobs', job).getList();
     }
 
     function getJobConfig(master, job){
-      return Restangular.one('builds', master).one('jobs', job).get();
+      return Restangular.one('v2').one('builds', master).one('jobs', job).get();
     }
 
     return {
