@@ -21,7 +21,12 @@ module.exports = angular.module('spinnaker.core.ci.jenkins.igor.service', [
     }
 
     function getJobConfig(master, job){
-      return Restangular.one('v2').one('builds', master).one('jobs', job).get();
+      var RestangularEncodeUriFalse;
+
+      RestangularEncodeUriFalse = Restangular.withConfig(function(RestangularConfigurer) {
+        RestangularConfigurer.setEncodeIds(false);
+      });
+      return RestangularEncodeUriFalse.one('v2').one('builds', master).one('jobs', job).get();
     }
 
     return {
